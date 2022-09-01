@@ -4,7 +4,7 @@ const path = require('path')
 const cors = require('cors')
 require('dotenv').config()
 
-const { ROLLBARTOKEN } = process.env
+const { ROLLBARTOKEN, PORT } = process.env
 
 app.use(express.json())
 app.use(cors())
@@ -64,6 +64,6 @@ app.delete('/api/students/:index', (req, res) => {
     res.status(200).send(students)
 })
 
-const port = process.env.PORT || 5050
+const port = PORT
 
 app.listen(port, () => console.log(`Server listening on ${port}`))
